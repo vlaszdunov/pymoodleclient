@@ -1,0 +1,25 @@
+#Byte-compiled
+__pycache__
+
+#Environment
+.venv
+.env
+
+# Build
+*.manifest
+build
+dist
+*.spec
+
+# Tests
+.pytest_cache/
+
+# IDE-staff
+*.iws
+.idea/workspace.xml
+.idea/shelf
+.idea/httpRequests
+.idea/dataSources/
+.idea/dataSources.ids
+.idea/dataSources.local.xml
+.idea/vcs.xml
