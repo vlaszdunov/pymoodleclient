@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pymoodleclient"
-version = "0.1.0"
+version = "0.2.0b1"
 description = "Simple and powerful python client for Moodle webservices REST API"
 license = "Apache-2.0"
 authors = ["vlaszdunov <design@formo.design>"]
@@ -10,7 +10,11 @@ repository = "https://github.com/vlaszdunov/pymoodleclient"
 
 [tool.poetry.dependencies]
 python = "^3.8"
+requests = "^2.32.3"
 
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.8.0"
 
 [build-system]
 requires = ["poetry-core"]

@@ -23,3 +23,6 @@ dist
 .idea/dataSources.ids
 .idea/dataSources.local.xml
 .idea/vcs.xml
+.idea/runConfigurations/publish_package.xml
+
+test.py
