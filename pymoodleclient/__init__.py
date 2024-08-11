@@ -1,2 +1,2 @@
 from .client import Client
-import endpoints
+from . import endpoints

@@ -1,17 +1,17 @@
-from dataclasses import dataclass as dataclass, InitVar
+from dataclasses import dataclass as __dataclass, InitVar
 from typing import Optional
 
 from pymoodleclient.endpoints.base import ResponseObject
 
 
-@dataclass
+@__dataclass
 class CourseFormatOption:
     name: str
     value: int
 
 
-@dataclass
-class Course(ResponseObject):
+@__dataclass
+class Course:
     id: int
     shortname: str
     categoryid: int
@@ -48,7 +48,7 @@ class Course(ResponseObject):
         ]
 
 
-@dataclass
+@__dataclass
 class CourseList(ResponseObject):
     courses: list[Course]
 
@@ -56,4 +56,4 @@ class CourseList(ResponseObject):
         for course in self.courses:
             if "hiddensections" in course.keys():
                 course.pop("hiddensections")
-            course = Course(**course)
+            self.courses[self.courses.index(course)] = Course(**course)
