@@ -12,10 +12,30 @@ class Client:
         self.token = token
 
     def call(self, endpoint: Endpoint) -> ResponseObject:
-        response: ResponseObject = endpoint.response_object(
-            endpoint.request_type(
-                f"{self.url}/webservice/rest/server.php",
-                params=asdict(Params(self.token, endpoint.function_name)),
-            ).json()
-        )
+        match hasattr(endpoint, "query_params"):
+            case False:
+                response: ResponseObject = endpoint.response_object(
+                    endpoint.request_type(
+                        f"{self.url}/webservice/rest/server.php",
+                        params=asdict(
+                            Params(
+                                self.token,
+                                endpoint.function_name,
+                            )
+                        ),
+                    ).json()
+                )
+            case True:
+                response: ResponseObject = endpoint.response_object(
+                    endpoint.request_type(
+                        f"{self.url}/webservice/rest/server.php",
+                        params=asdict(
+                            Params(
+                                self.token,
+                                endpoint.function_name,
+                                asdict(endpoint.query_params),
+                            )
+                        ),
+                    ).json()
+                )
         return response

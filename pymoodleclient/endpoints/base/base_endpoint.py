@@ -4,7 +4,6 @@ from typing import Callable
 
 @__dataclass
 class QueryParams:
-    "fegd"
     pass
 
 
@@ -12,7 +11,7 @@ class QueryParams:
 class Endpoint:
     """Base class of Endpoint Objects"""
 
+    query_params: QueryParams
     response_object: type
     request_type: Callable
     function_name: str
-    query_params: QueryParams
